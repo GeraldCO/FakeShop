@@ -1,18 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../CartContext";
 
 const ProductCard = ({ product, addItemToCart }) => {
-    const [quantity, setQuantity] = useState(1);
 
-    const handleIncrease = () => {
-        setQuantity(quantity + 1);
-    };
-
-    const handleDecrease = () => {
-        if (quantity == 1) {
-            return;
-        }
-        setQuantity(quantity - 1);
-    };
+    const {addToCart, cart, increaseQuantity, decreaseQuantity} = useContext(CartContext);
 
     return (
         <div className="product-card">
@@ -20,9 +11,9 @@ const ProductCard = ({ product, addItemToCart }) => {
             <h2>{product.name}</h2>
             <p>${product.price.toFixed(2)}</p>
             <button>-</button>
-            <input type="number" value="0" />
+            <span> {product.quantity ? product.quatity : 1} </span>
             <button>+</button>
-            <button onClick={() => addItemToCart(product)}>Add to Cart</button>
+            <button onClick={() =>addToCart(product, 1) }>Add to Cart</button>
         </div>
     );
 }
