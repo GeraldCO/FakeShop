@@ -44,7 +44,11 @@ const { addToCart } = useContext(CartContext);
     return (
         <div>
             {products.map(product => (
-                <ProductCard key={product.id} product={product} addItemToCart={addItemToCart} />
+                <ProductCard 
+                  key={product.id} 
+                  product={product} 
+                  addItemToCart={addItemToCart} 
+                />
             ))}
         </div>
     );
