@@ -7,31 +7,45 @@ const CartProvider = ({children}) => {
     const addToCart = (product, quantity) => {
         setCart((prevCart) => {
             const existing = (prevCart.find(
-                (item)=> igem.id === product.id)
+                (item)=> item.id === product.id)
             )
             if(existing) {
-                return prevCart.map((item) => {
+                return prevCart.map((item) => 
                     item.id === product.id ? 
                     {
                         ...item,
-                        quantity = quantity
+                        quantity : quantity
                     } : item
-                })
+                )
             }
-        });
+        
 
         return [
             ...prevCart,{
                 ...product,
                 quantity: quantity
             }
-        ]
+        ];
+        });
+    };
+
+    const handleIncrease = (product) => {
+
     }
+
+    const handleDecrease = (product) => {
+
+    }
+
+
 
     return <CartContext
         value = {{
             cart, 
-            addToCart}}
+            addToCart, 
+            handleIncrease,
+            handleDecrease
+        }}
             >
             {children}
     </CartContext>
