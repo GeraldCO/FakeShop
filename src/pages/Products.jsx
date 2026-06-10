@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import NavBar from "../components/NavBar";
 import fetchProducts from "../api/client";
 import ProductCard from "../components/ProductCard";
-import { CartContext } from "../CartContext";
+import { CartContext } from "../cartContext";
 import { useContext } from "react";
 
 const Products = () => {
