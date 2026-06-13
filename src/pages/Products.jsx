@@ -5,6 +5,7 @@ import fetchProducts from "../api/client";
 import ProductCard from "../components/ProductCard";
 import { CartContext } from "../cartContext";
 import { useContext } from "react";
+import './Products.css';
 
 const Products = () => {
 
@@ -42,7 +43,7 @@ const { addToCart } = useContext(CartContext);
   }
 
     return (
-        <div>
+        <div className="products-container">
             {products.map(product => (
                 <ProductCard 
                   key={product.id} 

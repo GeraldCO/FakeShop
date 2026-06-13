@@ -5,13 +5,18 @@ import NavBar from "./components/NavBar";
 import ProductCard from "./components/ProductCard";
 import { useState, useEffect } from 'react';
 
+
 const App = () => {
   
   return (
         <div className="App">
-            <NavBar />
-            
-            <Outlet />
+            <div className="container">
+                <div className="content">
+                    <NavBar />
+                    <Outlet />
+                </div>
+                
+            </div>
         </div>
     );
 }
