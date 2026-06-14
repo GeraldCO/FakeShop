@@ -2,16 +2,21 @@ import { Link } from 'react-router';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
 import Cart from '../pages/Cart';
-import styles from './NavBar.module.css';
+import './NavBar.css';
+import { CartContext } from "../cartContext";
+import { useContext } from "react";
+
 
 const NavBar = () => {
+    const {cart} = useContext(CartContext);
+
     return (
-        <nav className={styles.navbar}>
+        <nav className='navbar'>
             <h1>PC components</h1>
-            <ul className={styles.navLinks}>
-                <li ><Link className={styles['nav-link']} to={"/"}>Home</Link></li>
-                <li ><Link className={styles['nav-link']} to={"/products"}>Products</Link></li>
-                <li ><Link className={styles['nav-link']} to={"/cart"}>Cart</Link></li>
+            <ul className='navLinks'>
+                <li ><Link className='nav-link' to={"/"}>Home</Link></li>
+                <li ><Link className='nav-link' to={"/products"}>Products</Link></li>
+                <li ><Link className='nav-link' to={"/cart"}>Cart ({cart.count})</Link></li>
             </ul>
         </nav>
     )

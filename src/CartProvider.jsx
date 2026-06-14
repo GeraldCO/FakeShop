@@ -29,6 +29,16 @@ const CartProvider = ({children}) => {
         });
     };
 
+    const cartQuantity = () =>{
+        if (cart){
+            cart.map((e)=>{
+
+            })
+        } else {
+            return "No items on cart."
+        }
+    }
+
     const handleIncrease = (product) => {
 
     }

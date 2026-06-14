@@ -6,6 +6,8 @@ const Cart = () => {
 
     return <div>
         {console.log(cart)}
+        {console.log("the amount of items in the cart is: " + cart.length)}
+
     </div>
 }
 
