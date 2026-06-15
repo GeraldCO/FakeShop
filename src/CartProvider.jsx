@@ -4,11 +4,15 @@ import { CartContext } from "./cartContext";
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
+    const totalQuantity = cart.reduce(
+        (total, item) => total + item.quantity,
+        0
+    );
+
     const addToCart = (product, quantity) => {
         setCart((prevCart) => {
-            const existing = (prevCart.find(
-                (item)=> item.id === product.id)
-            )
+            const existing = (prevCart.find((item)=> item.id === product.id));
+            
             if(existing) {
                 return prevCart.map((item) => 
                     item.id === product.id ? 
@@ -18,8 +22,6 @@ const CartProvider = ({children}) => {
                     } : item
                 )
             }
-        
-
         return [
             ...prevCart,{
                 ...product,
@@ -29,32 +31,12 @@ const CartProvider = ({children}) => {
         });
     };
 
-    const cartQuantity = () =>{
-        if (cart){
-            cart.map((e)=>{
-
-            })
-        } else {
-            return "No items on cart."
-        }
-    }
-
-    const handleIncrease = (product) => {
-
-    }
-
-    const handleDecrease = (product) => {
-
-    }
-
-
-
+    
     return <CartContext
         value = {{
-            cart, 
-            addToCart, 
-            handleIncrease,
-            handleDecrease
+            cart,
+            totalQuantity,
+            addToCart
         }}
             >
             {children}

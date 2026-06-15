@@ -8,7 +8,7 @@ import { useContext } from "react";
 
 
 const NavBar = () => {
-    const {cart} = useContext(CartContext);
+    const {totalQuantity} = useContext(CartContext);
 
     return (
         <nav className='navbar'>
@@ -16,7 +16,7 @@ const NavBar = () => {
             <ul className='navLinks'>
                 <li ><Link className='nav-link' to={"/"}>Home</Link></li>
                 <li ><Link className='nav-link' to={"/products"}>Products</Link></li>
-                <li ><Link className='nav-link' to={"/cart"}>Cart ({cart.count})</Link></li>
+                <li ><Link className='nav-link' to={"/cart"}>Cart ({totalQuantity})</Link></li>
             </ul>
         </nav>
     )
