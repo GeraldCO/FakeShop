@@ -9,6 +9,10 @@ const routes = [
         path : "/",
         element: <App />,
         children : [
+             {
+                index: true,
+                element: <Home />
+            },
             {
                 path : "/products",
                 element: <Products />

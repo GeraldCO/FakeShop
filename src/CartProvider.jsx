@@ -31,12 +31,17 @@ const CartProvider = ({children}) => {
         });
     };
 
+    const removeFromCart = (product) => {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+    };
+
     
     return <CartContext
         value = {{
             cart,
             totalQuantity,
-            addToCart
+            addToCart,
+            removeFromCart
         }}
             >
             {children}

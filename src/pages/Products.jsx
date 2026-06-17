@@ -1,4 +1,3 @@
-import { Outlet } from "react-router";
 import { useState, useEffect } from 'react';
 import NavBar from "../components/NavBar";
 import fetchProducts from "../api/client";
@@ -11,9 +10,7 @@ const Products = () => {
 
 const [products, setProducts] = useState([]);
 const [isLoading, setIsLoading] = useState(true);
-const cartItems = useContext(CartContext);
 const { addToCart } = useContext(CartContext);
-
 
 
   useEffect(() => {
@@ -32,11 +29,6 @@ const { addToCart } = useContext(CartContext);
     loadProducts();
   }, []);
 
-  function addItemToCart(product) {
-    cartItems.push(product);
-    console.log(cartItems);
-  }
-
 
   if (isLoading) {
     return <p>Loading products...</p>;
@@ -48,7 +40,6 @@ const { addToCart } = useContext(CartContext);
                 <ProductCard 
                   key={product.id} 
                   product={product} 
-                  addItemToCart={addItemToCart} 
                 />
             ))}
         </div>
